@@ -41,11 +41,11 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   ffmpeg-kit-ios-full-gpl: 80adc341962e55ef709e36baa8ed9a70cf4ea62b
   ffmpeg_kit_flutter_full_gpl: 350bef923e294aa2559f1d6dcb3b76cfd51a76a3
-  Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
+  Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
   path_provider_foundation: 29f094ae23ebbca9d3d0cec13889cd9060c0e943
   record: cae05d8dd3cdb1dea3511b20e5a5811a1ae00d0d
-  whisper_flutter_plus: d23b5d67cd20df326657865fe5b2bcafa6c00ffa
+  whisper_flutter_plus: 7b63fc8761dd4f380cf528eed045c9e2766ace05
 
 PODFILE CHECKSUM: f9420bd595da8fbce156b547dcd3368afc5226ff
 
-COCOAPODS: 1.11.3
+COCOAPODS: 1.15.2

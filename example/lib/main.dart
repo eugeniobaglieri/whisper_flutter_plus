@@ -93,7 +93,7 @@ class MyHomePage extends ConsumerWidget {
                     DropdownButton(
                       isExpanded: true,
                       value: lang,
-                      items: ['id', 'fr', 'en']
+                      items: ['id', 'fr', 'en', 'auto']
                           .map(
                             (String lang) => DropdownMenuItem(
                               value: lang,
@@ -124,8 +124,7 @@ class MyHomePage extends ConsumerWidget {
                       ],
                       onChanged: (bool? translate) {
                         if (translate != null) {
-                          ref.read(translateProvider.notifier).state =
-                              translate;
+                          ref.read(translateProvider.notifier).state = translate;
                         }
                       },
                     ),
@@ -145,8 +144,7 @@ class MyHomePage extends ConsumerWidget {
                       ],
                       onChanged: (bool? withSegments) {
                         if (withSegments != null) {
-                          ref.read(withSegmentsProvider.notifier).state =
-                              withSegments;
+                          ref.read(withSegmentsProvider.notifier).state = withSegments;
                         }
                       },
                     ),
@@ -166,8 +164,7 @@ class MyHomePage extends ConsumerWidget {
                       ],
                       onChanged: (bool? splitWords) {
                         if (splitWords != null) {
-                          ref.read(splitWordsProvider.notifier).state =
-                              splitWords;
+                          ref.read(splitWordsProvider.notifier).state = splitWords;
                         }
                       },
                     ),
@@ -179,13 +176,11 @@ class MyHomePage extends ConsumerWidget {
                           onPressed: () async {
                             final Directory documentDirectory =
                                 await getApplicationDocumentsDirectory();
-                            final ByteData documentBytes =
-                                await rootBundle.load(
+                            final ByteData documentBytes = await rootBundle.load(
                               'assets/jfk.wav',
                             );
 
-                            final String jfkPath =
-                                '${documentDirectory.path}/jfk.wav';
+                            final String jfkPath = '${documentDirectory.path}/jfk.wav';
 
                             await File(jfkPath).writeAsBytes(
                               documentBytes.buffer.asUint8List(),
@@ -198,8 +193,7 @@ class MyHomePage extends ConsumerWidget {
                         const SizedBox(width: 20),
                         ElevatedButton(
                           onPressed: () async {
-                            final String? recordFilePath =
-                                await RecordPage.openRecordPage(
+                            final String? recordFilePath = await RecordPage.openRecordPage(
                               context,
                             );
 
@@ -220,17 +214,14 @@ class MyHomePage extends ConsumerWidget {
                       Text(
                         transcriptionResult.time.toString(),
                       ),
-                      if (transcriptionResult.transcription.segments !=
-                          null) ...[
+                      if (transcriptionResult.transcription.segments != null) ...[
                         const SizedBox(height: 20),
                         Expanded(
                           child: ListView.separated(
-                            itemCount: transcriptionResult
-                                .transcription.segments!.length,
+                            itemCount: transcriptionResult.transcription.segments!.length,
                             itemBuilder: (context, index) {
                               final WhisperTranscribeSegment segment =
-                                  transcriptionResult
-                                      .transcription.segments![index];
+                                  transcriptionResult.transcription.segments![index];
 
                               final Duration fromTs = segment.fromTs;
                               final Duration toTs = segment.toTs;

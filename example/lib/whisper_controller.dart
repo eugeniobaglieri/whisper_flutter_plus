@@ -33,6 +33,7 @@ class WhisperController extends StateNotifier<AsyncValue<TranscribeResult?>> {
     try {
       final WhisperTranscribeResponse transcription = await whisper.transcribe(
         transcribeRequest: TranscribeRequest(
+          threads: 8,
           audio: filePath,
           language: lang,
           isTranslate: translate,
@@ -56,7 +57,7 @@ class WhisperController extends StateNotifier<AsyncValue<TranscribeResult?>> {
   }
 }
 
-final whisperControllerProvider = StateNotifierProvider.autoDispose<
-    WhisperController, AsyncValue<TranscribeResult?>>(
+final whisperControllerProvider =
+    StateNotifierProvider.autoDispose<WhisperController, AsyncValue<TranscribeResult?>>(
   (ref) => WhisperController(ref),
 );
