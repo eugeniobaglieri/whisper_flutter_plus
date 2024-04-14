@@ -58,9 +58,8 @@ class Whisper {
     if (modelDir != null) {
       return modelDir!;
     }
-    final Directory libraryDirectory = Platform.isAndroid
-        ? await getApplicationSupportDirectory()
-        : await getLibraryDirectory();
+    final Directory libraryDirectory =
+        Platform.isAndroid ? await getApplicationSupportDirectory() : await getLibraryDirectory();
     return libraryDirectory.path;
   }
 
@@ -85,8 +84,7 @@ class Whisper {
     await _initModel();
     return Isolate.run(
       () async {
-        final Pointer<Utf8> data =
-            whisperRequest.toRequestString().toNativeUtf8();
+        final Pointer<Utf8> data = whisperRequest.toRequestString().toNativeUtf8();
         final Pointer<Utf8> res = _openLib()
             .lookupFunction<WReqNative, WReqNative>(
               'request',

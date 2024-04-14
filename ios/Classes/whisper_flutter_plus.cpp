@@ -1,7 +1,7 @@
-#include "whisper/whisper.h"
+#include "whisper.cpp/whisper.h"
 
 #define DR_WAV_IMPLEMENTATION
-#include "whisper/examples/dr_wav.h"
+#include "whisper.cpp/examples/dr_wav.h"
 
 #include <cmath>
 #include <fstream>
@@ -161,14 +161,14 @@ json transcribe(json jsonBody)
     params.split_on_word = jsonBody["split_on_word"];
     json jsonResult;
     jsonResult["@type"] = "transcribe";
-
+/*
     if (whisper_lang_id(params.language.c_str()) == -1)
     {
         jsonResult["@type"] = "error";
         jsonResult["message"] = "error: unknown language";
         return jsonResult;
     }
-
+*/
     if (params.seed < 0)
     {
         params.seed = time(NULL);
